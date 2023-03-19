@@ -1,0 +1,107 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  padding: 0;
+  text-align: left;
+}
+
+.card img {
+  width: 100%;
+}
+
+.card h2 {
+  margin-bottom: -10px;
+}
+
+.card h2,
+.card p {
+  font-size: 20px;
+  padding: 5px 20px;
+  font-weight: 500;
+}
+
+.card p {
+  font-size: 16px;
+  margin-top: 5px;
+  font-weight: 400;
+}
+
+.card:hover > .card p {
+  display: block;
+}
+input {
+  width: 60%;
+  border-radius: 20px;
+  font-size: 16px;
+  color: #fff;
+  border: none;
+  outline: none;
+  padding: 12px 20px;
+  margin-bottom: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input:focus {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+@media screen and (max-width: 780px) {
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  input {
+    width: 90%;
+  }
+}
