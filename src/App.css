@@ -3,6 +3,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background: #242424 !important;
 }
 
 .logo {
@@ -48,10 +49,11 @@
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.2);
+  background: #505050 !important;
   border-radius: 4px;
   padding: 0;
   text-align: left;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .card img {
@@ -89,11 +91,40 @@ input {
   margin-bottom: 2rem;
   margin-left: auto;
   margin-right: auto;
+  background: #3b3b3b;
 }
 
 input:focus {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.welcome {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  flex-direction: column;
+}
+
+.welcome div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome span {
+  font-size: 20px;
+}
+
+.welcome img {
+  height: 60px;
+  width: 60px;
+}
+
+.welcome p {
+  display: block;
 }
 
 @media screen and (max-width: 780px) {

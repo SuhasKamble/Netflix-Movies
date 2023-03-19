@@ -2,14 +2,13 @@ import { useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
-
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
 import Card from "./components/Card";
+import Welcome from "./components/Welcome";
 
 function App() {
   const [search, setSearch] = useState("");
   const [movies, setMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const options = {
     method: "GET",
@@ -27,52 +26,37 @@ function App() {
     const res = await api.json();
     console.log(res);
     setMovies(res.titles);
+    setIsLoading(false);
   };
 
   useEffect(() => {
     getMovies("stranger");
   }, []);
-
-  const responsive = {
-    superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
-      items: 5,
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 3,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-    },
-  };
-
   return (
     <div className="App">
-      {/* <h2>Search a movie</h2> */}
-      <form
-        onSubmit={(e) => {
-          e.preventDefault(), getMovies(search);
-        }}
-      >
-        <input
-          type="text"
-          placeholder="Search a movie"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
-      </form>
-      <div className="cards">
-        {movies.map((movie) => {
-          return <Card key={movie.summary.id} movie={movie} />;
-        })}
-      </div>
+      {isLoading ? (
+        <Welcome />
+      ) : (
+        <>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault(), getMovies(search);
+            }}
+          >
+            <input
+              type="text"
+              placeholder="Search a movie"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </form>
+          <div className="cards">
+            {movies.map((movie) => {
+              return <Card key={movie.summary.id} movie={movie} />;
+            })}
+          </div>
+        </>
+      )}
     </div>
   );
 }
